@@ -20,8 +20,8 @@ async function provisionDemo(role:Role){
 
 export default function Login(){
   const[role,setRole]=useState<Role>('patient');
-  const[email,setEmail]=useState(demos.patient.email);
-  const[password,setPassword]=useState(demos.patient.password);
+  const[email,setEmail]=useState<string>(demos.patient.email);
+  const[password,setPassword]=useState<string>(demos.patient.password);
   const[busy,setBusy]=useState(false);
   const[error,setError]=useState('');
   const[notice,setNotice]=useState('');
