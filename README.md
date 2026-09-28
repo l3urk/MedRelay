@@ -128,16 +128,6 @@ GEMINI_API_KEY=YOUR_GEMINI_API_KEY
 GEMINI_MODEL=gemini-3.8-flash
 ```
 
-### 5. Configure Supabase
-
-The repository includes the database schema and migrations under `supabase/`.
-
-For a fresh Supabase project, apply the migrations in order using the Supabase CLI or Supabase dashboard workflow.
-
-The application expects Supabase Auth to be enabled.
-
-> **Important:** Never put a Supabase service-role/secret key in a `NEXT_PUBLIC_*` variable or commit it to GitHub.
-
 ### 6. Start the development server
 
 ```bash
