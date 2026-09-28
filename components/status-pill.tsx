@@ -1,0 +1,1 @@
+import type {RefillStatus} from '@/types/refill';import {statusLabels} from '@/lib/workflow/states';export function StatusPill({status}:{status:RefillStatus}){return <span className="inline-flex rounded-full border border-line bg-mist px-3 py-1 text-xs font-semibold text-slate-700">{statusLabels[status]}</span>}

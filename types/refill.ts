@@ -1,0 +1,4 @@
+export type Role='pharmacy'|'provider'|'patient';
+export type RefillStatus='REQUESTED'|'PHARMACY_REVIEW'|'PROVIDER_AUTHORIZATION_REQUIRED'|'WAITING_FOR_PROVIDER'|'PROVIDER_APPROVED'|'PROVIDER_REJECTED'|'VISIT_REQUIRED'|'INFORMATION_REQUIRED'|'INSURANCE_REQUIRED'|'WAITING_FOR_INSURANCE'|'INSURANCE_APPROVED'|'INSURANCE_PROBLEM'|'PHARMACY_PROCESSING'|'READY_FOR_DISPENSE'|'DISPENSED'|'COMPLETED'|'CANCELLED';
+export interface RefillRequest{id:string;prescription_id:string;status:RefillStatus;current_blocker:string|null;next_action:string|null;requested_by:string;requested_at:string;updated_at:string;completed_at:string|null;}
+export interface Prescription{id:string;patient_id:string;medication_id:string;pharmacy_id:string|null;provider_organization_id:string|null;prescriber_name:string|null;instructions:string|null;refills_authorized:number;refills_used:number;refills_remaining:number;prescription_date:string|null;expiry_date:string|null;}
