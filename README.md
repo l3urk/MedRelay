@@ -157,20 +157,6 @@ npm run build
 npm run start
 ```
 
-## Supabase Edge Function
-
-The repository contains the `medrelay-demo-account` Edge Function used for trusted demo-account provisioning.
-
-It runs in the **Supabase/Deno runtime**, not in the Next.js application runtime.
-
-If deploying it manually with the Supabase CLI, configure the required Supabase server-side secrets in the Supabase project and deploy the function from:
-
-```text
-supabase/functions/medrelay-demo-account/
-```
-
-Do **not** expose the service-role key to the browser.
-
 ## Environment variables
 
 | Variable | Required | Used for |
@@ -182,32 +168,6 @@ Do **not** expose the service-role key to the browser.
 
 For Vercel, configure the variables for the environments you deploy to and **redeploy after changing them**.
 
-## Demo workflow
-
-A typical demo can follow this path:
-
-1. Log in as a **pharmacy**
-2. Open **New Prescription**
-3. Upload a prescription document
-4. Review the AI-extracted fields
-5. Create the prescription and refill
-6. Open the refill detail
-7. Show the workflow timeline and current blocker
-8. Switch to the **provider** view
-9. Review and act on the refill
-10. Switch to the **patient** view
-11. Show the patient-facing refill status
-
-## Security notes
-
-MedRelay is designed around role-based access and Supabase Row Level Security.
-
-- Keep server-only API keys out of client code.
-- Never commit `.env.local`.
-- Never expose the Supabase service-role/secret key.
-- AI extraction is assistive and requires human review.
-- Clinical decisions remain with authorized healthcare professionals.
-- Patient-facing views intentionally hide internal workflow urgency details.
 
 ## Product scope
 
