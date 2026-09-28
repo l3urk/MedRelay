@@ -35,7 +35,12 @@ const extractionSchema = {
 
 export async function POST(request: Request) {
   await requireRole('pharmacy');
-  const apiKey = process.env.GEMINI_API_KEY || process.env.LLM_API_KEY;
+  console.log("[AI DEBUG]", {
+  hasGeminiKey: Boolean(process.env.GEMINI_API_KEY),
+  geminiKeyLength: process.env.GEMINI_API_KEY?.length || 0,
+  hasLlmKey: Boolean(process.env.LLM_API_KEY),
+  model: process.env.GEMINI_MODEL,
+});
   if (!apiKey) return NextResponse.json({ error: 'Gemini is not configured. Add GEMINI_API_KEY to the server environment.' }, { status: 503 });
 
   const form = await request.formData();
