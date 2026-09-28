@@ -37,10 +37,9 @@ export default function Login(){
     window.location.href=`/${profile.role}`;
   }
   async function demoLogin(){
-    setBusy(true);setError('');setNotice('Preparing the demo account…');
-    const d=demos[role];
-    try{const res=await provisionDemo(role); if(!res.ok){const body=await res.json().catch(()=>({})); if(!String(body.error||'').toLowerCase().includes('already registered')) throw new Error(body.error||'Could not prepare demo account.');} await signIn(role,d.email,d.password);}catch(e){setError(e instanceof Error?e.message:'Could not prepare demo account.');setBusy(false);}
-  }
+  const d=demos[role];
+  await signIn(role,d.email,d.password);
+}
   async function submit(e:React.FormEvent){e.preventDefault();await signIn(role,email,password)}
   const Icon=demos[role].icon;
   return <main className="min-h-screen bg-mist px-5 py-8 md:py-10"><div className="mx-auto max-w-6xl"><div className="flex items-center justify-between"><Link href="/" className="flex items-center gap-2 font-bold"><span className="grid h-9 w-9 place-items-center rounded-xl bg-ink text-white">M</span>Med<span className="text-mint">Relay</span></Link><Link href="/register" className="text-sm font-semibold text-slate-600">Create account</Link></div>
